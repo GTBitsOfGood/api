@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package juno.counter;
+import "identifiers.proto";
+
+
+service CounterService {
+    rpc incrementCounter(IncrementCounterRequest) returns (IncrementCounterResponse);
+    rpc decrementCounter(IncrementCounterRequest) returns (IncrementCounterResponse);
+    rpc resetCounter(IncrementCounterRequest) returns (IncrementCounterResponse);
+    rpc getCounter(IncrementCounterRequest) returns (IncrementCounterResponse);
+}
+
+message IncrementCounterRequest {
+    identifiers.CounterIdentifier id = 1;
+}
+message IncrementCounterResponse {
+    int32 value = 1;
+}
+
+message DecrementCounterRequest {
+    identifiers.CounterIdentifier id = 1;
+}
+message DecrementCounterResponse {
+    int32 value = 1;
+}
+
+message ResetCounterRequest {
+    identifiers.CounterIdentifier id = 1;
+}
+message ResetCounterResponse {
+    int32 value = 1;
+}
+
+message GetCounterRequest {
+    identifiers.CounterIdentifier id = 1;
+}
+message GetCounterResponse {
+    int32 value = 1;
+}
